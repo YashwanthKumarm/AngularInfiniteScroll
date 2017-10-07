@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<script src="~/Scripts/angular.js"></script>
+<script src="~/Angularjs/module.js"></script>
+<script src="~/Angularjs/Controller.js"></script>
+<script src="~/Angularjs/service.js"></script>
+@*<script src="~/Angularjs/directive.js"></script>*@
+<style type="text/css">
+    .loading{
+        position:absolute;
+        left:48%;
+        top:48%;
+        display:block;
+        padding:5px;
+        background-color:yellow;
+        color:red;
+        border:1px solid;
+        margin:0 auto;
+    }
+</style>
+
+<div class="container">
+    <h2>Infinity Scroll in AngularJS</h2>
+    <div ng-app="myapp" ng-controller="InfinityScrollController">
+        <div style="position:relative">
+            <span ng-show="IsLoading" class="loading">Loading...</span>
+            <div infinityscroll="NextPage()" style="height:400px;overflow:auto;">
+                <table class="table table-responsive table-striped">
+                    <thead>
+                        <tr>
+                            <th>Names</th>
+                            <th>email</th>
+                            <th>password</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="emp in EmployeeList">
+                            <td>{{emp.names}}</td>
+                            <td>{{emp.email}}</td>
+                            <td>{{emp.password}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
